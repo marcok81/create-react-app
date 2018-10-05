@@ -231,7 +231,6 @@ module.exports = {
               babelrc: false,
               configFile: false,
               presets: [require.resolve('babel-preset-react-app')],
-              plugins: [require.resolve('babel-plugin-transform-decorators-legacy')],
               // Make sure we have a unique cache identifier, erring on the
               // side of caution.
               // We remove this when the user ejects because the default
@@ -245,6 +244,8 @@ module.exports = {
               ]),
               // @remove-on-eject-end
               plugins: [
+                ['@babel/plugin-proposal-decorators', { legacy: true }],
+                ['@babel/plugin-proposal-class-properties', { loose: true }],
                 [
                   require.resolve('babel-plugin-named-asset-import'),
                   {
